@@ -1,0 +1,12 @@
+C:\Projects\nt-calc\NTUtils\bin\Debug\net6.0\NTUtils.deps.json
+C:\Projects\nt-calc\NTUtils\bin\Debug\net6.0\NTUtils.dll
+C:\Projects\nt-calc\NTUtils\bin\Debug\net6.0\ref\NTUtils.dll
+C:\Projects\nt-calc\NTUtils\bin\Debug\net6.0\NTUtils.pdb
+C:\Projects\nt-calc\NTUtils\obj\Debug\net6.0\NTUtils.csproj.AssemblyReference.cache
+C:\Projects\nt-calc\NTUtils\obj\Debug\net6.0\NTUtils.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\nt-calc\NTUtils\obj\Debug\net6.0\NTUtils.AssemblyInfoInputs.cache
+C:\Projects\nt-calc\NTUtils\obj\Debug\net6.0\NTUtils.AssemblyInfo.cs
+C:\Projects\nt-calc\NTUtils\obj\Debug\net6.0\NTUtils.csproj.CoreCompileInputs.cache
+C:\Projects\nt-calc\NTUtils\obj\Debug\net6.0\NTUtils.dll
+C:\Projects\nt-calc\NTUtils\obj\Debug\net6.0\ref\NTUtils.dll
+C:\Projects\nt-calc\NTUtils\obj\Debug\net6.0\NTUtils.pdb

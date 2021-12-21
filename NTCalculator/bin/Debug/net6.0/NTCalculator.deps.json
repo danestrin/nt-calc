@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "NTCalculator/1.0.0": {
+        "dependencies": {
+          "NTUtils": "1.0.0"
+        },
+        "runtime": {
+          "NTCalculator.dll": {}
+        }
+      },
+      "NTUtils/1.0.0": {
+        "runtime": {
+          "NTUtils.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "NTCalculator/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NTUtils/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
