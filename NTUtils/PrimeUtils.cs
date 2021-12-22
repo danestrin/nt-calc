@@ -2,6 +2,10 @@
 public static class PrimeUtils
 {
     public static List<int> PrimeSieve(int n) {
+        if (n == 0 || n == 1) {
+            return new List<int>();
+        }
+
         int[] sieve = new int[n + 1];
         sieve[0] = 1;
         sieve[1] = 1;
