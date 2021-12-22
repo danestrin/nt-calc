@@ -30,4 +30,31 @@ public static class PrimeUtils
 
         return primes;
     }
+
+    public static Dictionary<int, int> PrimeFactorization(int n) {
+        if (n == 0) {
+            throw new ArgumentException("Cannot do prime factorization on 0.");
+        }
+        Dictionary<int, int> factors = new Dictionary<int, int>() {
+            {1, 1}
+        };
+        List<int> potentialPrimes = PrimeUtils.PrimeSieve((int) Math.Floor(Math.Sqrt(n)));
+        potentialPrimes.Add(n);
+
+        while (n != 1) {
+            foreach (int p in potentialPrimes.ToList<int>()) {
+                if (n % p == 0) {
+                    if (factors.ContainsKey(p)) {
+                        factors[p] += 1;
+                    } else {
+                        factors[p] = 1;
+                    }
+                    n = n / p;
+                    potentialPrimes.Add(n);
+                }
+            }
+        }
+
+        return factors;
+    }
 }
