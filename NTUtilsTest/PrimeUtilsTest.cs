@@ -30,7 +30,6 @@ public class PrimeUtilsTest
     {
         int n1 = 30;
         Dictionary<int, int> expected1 = new Dictionary<int, int>() {
-            {1, 1},
             {2, 1},
             {3, 1},
             {5, 1}
@@ -38,7 +37,6 @@ public class PrimeUtilsTest
 
         int n2 = 2166;
         Dictionary<int, int> expected2 = new Dictionary<int, int>() {
-            {1, 1},
             {2, 1},
             {3, 1},
             {19, 2}
@@ -46,13 +44,11 @@ public class PrimeUtilsTest
 
         int n3 = 47;
         Dictionary<int, int> expected3 = new Dictionary<int, int>() {
-            {1, 1},
             {47, 1}
         };
 
         int n4 = 32575;
         Dictionary<int, int> expected4 = new Dictionary<int, int>() {
-            {1, 1},
             {5, 2},
             {1303, 1}
         };

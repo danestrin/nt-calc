@@ -35,9 +35,7 @@ public static class PrimeUtils
         if (n == 0) {
             throw new ArgumentException("Cannot do prime factorization on 0.");
         }
-        Dictionary<int, int> factors = new Dictionary<int, int>() {
-            {1, 1}
-        };
+        Dictionary<int, int> factors = new Dictionary<int, int>();
         List<int> potentialPrimes = PrimeUtils.PrimeSieve((int) Math.Floor(Math.Sqrt(n)));
         potentialPrimes.Add(n);
 
