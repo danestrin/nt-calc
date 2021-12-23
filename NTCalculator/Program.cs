@@ -54,12 +54,22 @@ class Program {
                         Console.WriteLine($"{factorized.Item1} * {factorized.Item2}");
                     }
                     break;
+                case "euler":
+                    if (args.Length != 2 || !args[1].All(Char.IsDigit)) {
+                        Console.WriteLine("[ERROR] Incorrect input format - correct format: euler [positive integer]");
+                    } else {
+                        int n = Convert.ToInt32(args[1]);
+                        Console.WriteLine($"{PrimeUtils.EulerPhi(n)}");
+                    }
+                    break;
                 default:
                     Console.WriteLine("[ERROR] Unrecognized command.");
                     break;
             }
         } catch (ArgumentException e) {
             Console.WriteLine($"[ERROR] {e.Message}");
+        } catch (OverflowException) {
+            Console.WriteLine("[ERROR] Input number is too large.");
         }
     }
 }

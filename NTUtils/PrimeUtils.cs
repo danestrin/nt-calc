@@ -2,7 +2,9 @@
 public static class PrimeUtils
 {
     public static List<int> PrimeSieve(int n) {
-        if (n == 0 || n == 1) {
+        if (n < 0) {
+            throw new ArgumentException("Prime sieve can only be called on positive integers.");
+        } else if (n == 0 || n == 1) {
             return new List<int>();
         }
 
@@ -33,7 +35,7 @@ public static class PrimeUtils
 
     public static Dictionary<int, int> PrimeFactorization(int n) {
         if (n <= 0) {
-            throw new ArgumentException("Cannot do prime factorization on nonpositive integers.");
+            throw new ArgumentException("Prime factorization can only be called on positive integers.");
         }
         Dictionary<int, int> factors = new Dictionary<int, int>();
         List<int> potentialPrimes = PrimeUtils.PrimeSieve((int) Math.Floor(Math.Sqrt(n)));
@@ -57,6 +59,9 @@ public static class PrimeUtils
     }
 
     public static bool IsPrime(int n) {
+        if (n < 0) {
+            throw new ArgumentException("Prime testing can only be called on positive integers.");
+        }
         if (n == 0 || n == 1 || n > 2 && n % 2 == 0) {
             return false;
         }
@@ -87,5 +92,25 @@ public static class PrimeUtils
 
         long s = (long) Math.Sqrt(diff);
         return Tuple.Create(t + s, t - s);
+    }
+
+    public static int EulerPhi(int n) {
+        if (n < 0) {
+            throw new ArgumentException("Euler Phi function can only be called on positive integers.");
+        } else if (n == 0) {
+            return 0;
+        } else if (n == 1) {
+            return 1;
+        }
+
+        Dictionary<int, int> factors = PrimeUtils.PrimeFactorization(n);
+        int product = 1;
+
+        foreach(KeyValuePair<int, int> factor in factors) {
+            int term = (int) Math.Pow(factor.Key, factor.Value - 1) * (factor.Key - 1);
+            product = product * term;
+        }
+
+        return product;
     }
 }

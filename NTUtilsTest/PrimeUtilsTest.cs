@@ -20,6 +20,7 @@ public class PrimeUtilsTest
         int n3 = 1;
         List<int> empty = new List<int>();
 
+        Assert.ThrowsException<ArgumentException>(() => PrimeUtils.PrimeSieve(-100));
         CollectionAssert.AreEqual(PrimeUtils.PrimeSieve(n1), expected1);
         CollectionAssert.AreEqual(PrimeUtils.PrimeSieve(n2), empty);
         CollectionAssert.AreEqual(PrimeUtils.PrimeSieve(n3), empty);
@@ -63,6 +64,7 @@ public class PrimeUtilsTest
     [TestMethod]
     public void TestIsPrime()
     {
+        Assert.ThrowsException<ArgumentException>(() => PrimeUtils.IsPrime(-100));
         Assert.IsTrue(PrimeUtils.IsPrime(2));
         Assert.IsFalse(PrimeUtils.IsPrime(843));
         Assert.IsTrue(PrimeUtils.IsPrime(12011));
@@ -81,6 +83,13 @@ public class PrimeUtilsTest
         Assert.ThrowsException<ArgumentException>(() => PrimeUtils.FermatFactorization(n1));
         Assert.AreEqual(PrimeUtils.FermatFactorization(n2), expected2);
         Assert.AreEqual(PrimeUtils.FermatFactorization(n3), expected3);
+    }
 
+    [TestMethod]
+    public void TestEulerPhi()
+    {
+        Assert.ThrowsException<ArgumentException>(() => PrimeUtils.EulerPhi(-100));
+        Assert.AreEqual(PrimeUtils.EulerPhi(89), 88);
+        Assert.AreEqual(PrimeUtils.EulerPhi(100), 40);
     }
 }
