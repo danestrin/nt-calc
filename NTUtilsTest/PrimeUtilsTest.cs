@@ -67,4 +67,20 @@ public class PrimeUtilsTest
         Assert.IsFalse(PrimeUtils.IsPrime(843));
         Assert.IsTrue(PrimeUtils.IsPrime(12011));
     }
+
+    [TestMethod]
+    public void TestFermatFactorization()
+    {
+        long n1 = 42;
+        long n2 = 6077;
+        long n3 = 129001203;
+
+        Tuple<long, long> expected2 = new Tuple<long, long>(103, 59);
+        Tuple<long, long> expected3 = new Tuple<long, long>(20389, 6327);
+
+        Assert.ThrowsException<ArgumentException>(() => PrimeUtils.FermatFactorization(n1));
+        Assert.AreEqual(PrimeUtils.FermatFactorization(n2), expected2);
+        Assert.AreEqual(PrimeUtils.FermatFactorization(n3), expected3);
+
+    }
 }

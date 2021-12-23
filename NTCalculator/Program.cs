@@ -45,6 +45,15 @@ class Program {
                         Console.WriteLine(PrimeUtils.IsPrime(n));
                     }
                     break;
+                case "fermat":
+                    if (args.Length != 2 || !args[1].All(Char.IsDigit)) {
+                        Console.WriteLine("[ERROR] Incorrect input format - correct format: fermat [positive odd integer]");
+                    } else {
+                        long n = Convert.ToInt64(args[1]);
+                        Tuple<long, long> factorized = PrimeUtils.FermatFactorization(n);
+                        Console.WriteLine($"{factorized.Item1} * {factorized.Item2}");
+                    }
+                    break;
                 default:
                     Console.WriteLine("[ERROR] Unrecognized command.");
                     break;

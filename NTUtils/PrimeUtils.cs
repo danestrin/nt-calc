@@ -71,4 +71,21 @@ public static class PrimeUtils
 
         return true;
     }
+
+    public static Tuple<long, long> FermatFactorization(long n) {
+        if (n < 0 || n % 2 == 0) {
+            throw new ArgumentException("Fermat Factorization can only be called on odd positive integers.");
+        }
+
+        long t = (long) Math.Ceiling(Math.Sqrt(n));
+        long diff = t*t - n;
+
+        while (Math.Sqrt(diff) % 1 != 0) {
+            t = t + 1;
+            diff = t*t - n;
+        }
+
+        long s = (long) Math.Sqrt(diff);
+        return Tuple.Create(t + s, t - s);
+    }
 }
