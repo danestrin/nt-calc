@@ -92,4 +92,18 @@ public class PrimeUtilsTest
         Assert.AreEqual(PrimeUtils.EulerPhi(89), 88);
         Assert.AreEqual(PrimeUtils.EulerPhi(100), 40);
     }
+
+    [TestMethod]
+    public void TestNumOfDivisors()
+    {
+        Assert.AreEqual(PrimeUtils.NumOfDivisors(7), 2);
+        Assert.AreEqual(PrimeUtils.NumOfDivisors(144), 15); 
+    }
+
+    [TestMethod]
+    public void TestSumOfDivisors()
+    {
+        Assert.AreEqual(PrimeUtils.SumOfDivisors(1000), 2340);
+        Assert.AreEqual(PrimeUtils.SumOfDivisors(2310), 6912);
+    }
 }

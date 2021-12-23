@@ -113,4 +113,40 @@ public static class PrimeUtils
 
         return product;
     }
+
+    public static int NumOfDivisors(int n) {
+        if (n <= 0) {
+            throw new ArgumentException("Number of Divisors function can only be called on positive integers.");
+        } else if (n == 1) {
+            return 1;
+        }
+
+        Dictionary<int, int> factors = PrimeUtils.PrimeFactorization(n);
+
+        int product = 1;
+        foreach (KeyValuePair<int, int> factor in factors) {
+            int term = factor.Value + 1;
+            product = product * term;
+        }
+
+        return product;
+    }
+
+    public static int SumOfDivisors(int n) {
+        if (n <= 0) {
+            throw new ArgumentException("Sum of Divisors function can only be called on positive integers.");
+        } else if (n == 1) {
+            return 1;
+        }
+
+        Dictionary<int, int> factors = PrimeUtils.PrimeFactorization(n);
+        
+        int product = 1;
+        foreach (KeyValuePair<int, int> factor in factors) {
+            int term = (int) (Math.Pow(factor.Key, factor.Value + 1) - 1) / (factor.Key - 1);
+            product = product * term;
+        }
+
+        return product;
+    }
 }

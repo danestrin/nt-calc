@@ -62,6 +62,22 @@ class Program {
                         Console.WriteLine($"{PrimeUtils.EulerPhi(n)}");
                     }
                     break;
+                case "numdiv":
+                    if (args.Length != 2 || !args[1].All(Char.IsDigit)) {
+                        Console.WriteLine("[ERROR] Incorrect input format - correct format: numdiv [positive integer]");
+                    } else {
+                        int n = Convert.ToInt32(args[1]);
+                        Console.WriteLine($"{PrimeUtils.NumOfDivisors(n)}");
+                    }
+                    break;
+                case "sumdiv":
+                    if (args.Length != 2 || !args[1].All(Char.IsDigit)) {
+                        Console.WriteLine("[ERROR] Incorrect input format - correct format: sumdiv [positive integer]");
+                    } else {
+                        int n = Convert.ToInt32(args[1]);
+                        Console.WriteLine($"{PrimeUtils.SumOfDivisors(n)}");
+                    }
+                    break;
                 default:
                     Console.WriteLine("[ERROR] Unrecognized command.");
                     break;
