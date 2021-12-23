@@ -32,8 +32,8 @@ public static class PrimeUtils
     }
 
     public static Dictionary<int, int> PrimeFactorization(int n) {
-        if (n == 0) {
-            throw new ArgumentException("Cannot do prime factorization on 0.");
+        if (n <= 0) {
+            throw new ArgumentException("Cannot do prime factorization on nonpositive integers.");
         }
         Dictionary<int, int> factors = new Dictionary<int, int>();
         List<int> potentialPrimes = PrimeUtils.PrimeSieve((int) Math.Floor(Math.Sqrt(n)));
@@ -54,5 +54,21 @@ public static class PrimeUtils
         }
 
         return factors;
+    }
+
+    public static bool IsPrime(int n) {
+        if (n == 0 || n == 1 || n > 2 && n % 2 == 0) {
+            return false;
+        }
+
+        List<int> testPrimes = PrimeUtils.PrimeSieve((int) Math.Floor(Math.Sqrt(n)));
+
+        foreach (int p in testPrimes.ToList<int>()) {
+            if (n % p == 0) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

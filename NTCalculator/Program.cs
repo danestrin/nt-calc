@@ -37,6 +37,14 @@ class Program {
                         Console.WriteLine(String.Join(" * ", formattedFactors));
                     }
                     break;
+                case "prime":
+                    if (args.Length != 2 || !args[1].All(Char.IsDigit)) {
+                        Console.WriteLine("[ERROR] Incorrect input format - correct format: prime [positive integer]");
+                    } else {
+                        int n = Convert.ToInt32(args[1]);
+                        Console.WriteLine(PrimeUtils.IsPrime(n));
+                    }
+                    break;
                 default:
                     Console.WriteLine("[ERROR] Unrecognized command.");
                     break;

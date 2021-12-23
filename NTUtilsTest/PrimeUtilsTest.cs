@@ -59,4 +59,12 @@ public class PrimeUtilsTest
         CollectionAssert.AreEqual(PrimeUtils.PrimeFactorization(n3), expected3);
         CollectionAssert.AreEqual(PrimeUtils.PrimeFactorization(n4), expected4);
     }
+
+    [TestMethod]
+    public void TestIsPrime()
+    {
+        Assert.IsTrue(PrimeUtils.IsPrime(2));
+        Assert.IsFalse(PrimeUtils.IsPrime(843));
+        Assert.IsTrue(PrimeUtils.IsPrime(12011));
+    }
 }
