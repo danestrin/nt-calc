@@ -140,6 +140,10 @@ public static class PrimeUtils
         }
 
         Dictionary<int, int> factors = PrimeUtils.PrimeFactorization(n);
+
+        if (factors.Count == 1 && factors.First().Value == 1){
+            return factors.First().Key + 1;
+        }
         
         int product = 1;
         foreach (KeyValuePair<int, int> factor in factors) {
