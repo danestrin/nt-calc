@@ -7,7 +7,10 @@ class Program {
         "[fermat n] - return fermat factorization of n (odd)",
         "[euler n] - return Euler phi function of n",
         "[numdiv n] - return number of divisors of n",
-        "[sumdiv n] - return sum of divisors of n"
+        "[sumdiv n] - return sum of divisors of n",
+        "[clear] - clear screen",
+        "[help] - show commands",
+        "[exit] - exit application"
     };
 
     public static  bool exit = false;
@@ -36,6 +39,13 @@ class Program {
                             foreach (string c in commandsHelp) {
                                 Console.WriteLine(c);
                             }
+                        }
+                        break;
+                    case "clear":
+                        if (input.Length > 1) {
+                            Console.WriteLine("[ERROR] Unrecognzied parameters added to [clear] command.");
+                        } else {
+                            Console.Clear();
                         }
                         break;
                     case "exit":
