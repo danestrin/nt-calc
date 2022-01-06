@@ -1,0 +1,3 @@
+C:\Projects\nt-calc\NTUtils\bin\Release\net6.0\publish\NTUtils.dll
+C:\Projects\nt-calc\NTUtils\bin\Release\net6.0\publish\NTUtils.deps.json
+C:\Projects\nt-calc\NTUtils\bin\Release\net6.0\publish\NTUtils.pdb

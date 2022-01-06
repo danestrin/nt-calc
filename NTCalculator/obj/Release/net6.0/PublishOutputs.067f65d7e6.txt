@@ -1,0 +1,7 @@
+C:\Projects\nt-calc\NTCalculator\bin\Release\net6.0\publish\NTCalculator.exe
+C:\Projects\nt-calc\NTCalculator\bin\Release\net6.0\publish\NTCalculator.dll
+C:\Projects\nt-calc\NTCalculator\bin\Release\net6.0\publish\NTCalculator.deps.json
+C:\Projects\nt-calc\NTCalculator\bin\Release\net6.0\publish\NTCalculator.runtimeconfig.json
+C:\Projects\nt-calc\NTCalculator\bin\Release\net6.0\publish\NTCalculator.pdb
+C:\Projects\nt-calc\NTCalculator\bin\Release\net6.0\publish\NTUtils.dll
+C:\Projects\nt-calc\NTCalculator\bin\Release\net6.0\publish\NTUtils.pdb
