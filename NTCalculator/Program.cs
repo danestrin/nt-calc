@@ -15,16 +15,26 @@ class Program {
 
     public static  bool exit = false;
 
+    public static ConsoleColor outputColor = ConsoleColor.Green;
+
+    public static ConsoleColor errorColor = ConsoleColor.Red;
+
+    public static ConsoleColor infoColor = ConsoleColor.Cyan;
+
     static void Main(string[] args) {
+        Console.ForegroundColor = infoColor;
         Console.WriteLine("** NT-CALC - command line calculator for number theory operations **");
         Console.WriteLine("** Use command [help] to view list of commands **");
         Console.WriteLine("** Use command [exit] to exit program **");
 
         while (!exit) {
+            Console.ResetColor();
             string? inputLine = Console.ReadLine();
 
-            while (inputLine == null) {
+            while (string.IsNullOrEmpty(inputLine)) {
+                Console.ForegroundColor = errorColor;
                 Console.WriteLine("[ERROR] No command specified.");
+                Console.ResetColor();
                 inputLine = Console.ReadLine();
             }
 
@@ -34,8 +44,10 @@ class Program {
                 switch(input[0]) {
                     case "help":
                         if (input.Length > 1) {
+                            Console.ForegroundColor = errorColor;
                             Console.WriteLine("[ERROR] Unrecognized parameters added to [help] command.");
                         } else {
+                            Console.ForegroundColor = infoColor;
                             foreach (string c in commandsHelp) {
                                 Console.WriteLine(c);
                             }
@@ -43,6 +55,7 @@ class Program {
                         break;
                     case "clear":
                         if (input.Length > 1) {
+                            Console.ForegroundColor = errorColor;
                             Console.WriteLine("[ERROR] Unrecognzied parameters added to [clear] command.");
                         } else {
                             Console.Clear();
@@ -50,21 +63,26 @@ class Program {
                         break;
                     case "exit":
                         if (input.Length > 1) {
+                            Console.ForegroundColor = errorColor;
                             Console.WriteLine("[ERROR] Unrecognized paramters added to [exit] command.");
                         }
                         exit = true;
                         break;
                     case "sieve":
                         if (input.Length != 2 || !input[1].All(Char.IsDigit)) {
+                            Console.ForegroundColor = errorColor;
                             Console.WriteLine("[ERROR] Incorrect input format - correct format: sieve [positive integer]");
                         } else {
                             int n = Convert.ToInt32(input[1]);
                             List<int> primes = PrimeUtils.PrimeSieve(n);
+
+                            Console.ForegroundColor = outputColor;
                             Console.WriteLine(String.Join(", ", primes));
                         }
                         break;
                     case "factor":
                         if (input.Length != 2 || !input[1].All(Char.IsDigit)) {
+                            Console.ForegroundColor = errorColor;
                             Console.WriteLine("[ERROR] Incorrect input format - correct format: factor [positive integer]");
                         } else {
                             int n = Convert.ToInt32(input[1]);
@@ -79,57 +97,76 @@ class Program {
                                 }
                             }
 
+                            Console.ForegroundColor = outputColor;
                             Console.WriteLine(String.Join(" * ", formattedFactors));
                         }
                         break;
                     case "prime":
                         if (input.Length != 2 || !input[1].All(Char.IsDigit)) {
+                            Console.ForegroundColor = errorColor;
                             Console.WriteLine("ERROR] Incorrect input format - correct format: prime [positive integer]");
                         } else {
                             int n = Convert.ToInt32(input[1]);
+
+                            Console.ForegroundColor = outputColor;
                             Console.WriteLine(PrimeUtils.IsPrime(n));
                         }
                         break;
                     case "fermat":
                         if (input.Length != 2 || !input[1].All(Char.IsDigit)) {
+                            Console.ForegroundColor = errorColor;
                             Console.WriteLine("[ERROR] Incorrect input format - correct format: fermat [positive odd integer]");
                         } else {
                             long n = Convert.ToInt64(input[1]);
                             Tuple<long, long> factorized = PrimeUtils.FermatFactorization(n);
+
+                            Console.ForegroundColor = outputColor;
                             Console.WriteLine($"{factorized.Item1} * {factorized.Item2}");
                         }
                         break;
                     case "euler":
                         if (input.Length != 2 || !input[1].All(Char.IsDigit)) {
+                            Console.ForegroundColor = errorColor;
                             Console.WriteLine("[ERROR] Incorrect input format - correct format: euler [positive integer]");
                         } else {
                             int n = Convert.ToInt32(input[1]);
+
+                            Console.ForegroundColor = outputColor;
                             Console.WriteLine($"{PrimeUtils.EulerPhi(n)}");
                         }
                         break;
                     case "numdiv":
                         if (input.Length != 2 || !input[1].All(Char.IsDigit)) {
+                            Console.ForegroundColor = errorColor;
                             Console.WriteLine("[ERROR] Incorrect input format - correct format: numdiv [positive integer]");
                         } else {
                             int n = Convert.ToInt32(input[1]);
+
+                            Console.ForegroundColor = outputColor;
                             Console.WriteLine($"{PrimeUtils.NumOfDivisors(n)}");
                         }
                         break;
                     case "sumdiv":
                         if (input.Length != 2 || !input[1].All(Char.IsDigit)) {
+                            Console.ForegroundColor = errorColor;
                             Console.WriteLine("[ERROR] Incorrect input format - correct format: sumdiv [positive integer]");
                         } else {
                             int n = Convert.ToInt32(input[1]);
+
+                            Console.ForegroundColor = outputColor;
                             Console.WriteLine($"{PrimeUtils.SumOfDivisors(n)}");
                         }
                         break;
                     default:
+                        Console.ForegroundColor = errorColor;
                         Console.WriteLine("[ERROR] Unrecognized command.");
                         break;
                 }
             } catch (ArgumentException e) {
+                Console.ForegroundColor = errorColor;
                 Console.WriteLine($"[ERROR] {e.Message}");
             } catch (OverflowException) {
+                Console.ForegroundColor = errorColor;
                 Console.WriteLine($"[ERROR] Input number is too large.");
             }
         }
